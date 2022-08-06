@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import router from '../router/router';
+import cors from 'cors';
 import HTTPError from '../types/httpError';
 
 class Application {
@@ -7,12 +8,14 @@ class Application {
     constructor() {
         this.application = express();
         this.application.use(express.json());
+        this.application.use(express.urlencoded({ extended: false }));
     }
 }
 
 const application: express.Application = new Application().application;
 
 application.use('/', router);
+application.use(cors());
 application.use(express.static('public'));
 
 application.use((_req: Request, _res: Response, next: NextFunction) => {
