@@ -6,8 +6,9 @@
     "scripts": {
         "start": "npm-run-all --parallel start:**",
         "start:client": "cd client && npm run start",
-        "start:server": "tsc && node dist",
+        "start:server": "nodemon --delay 2.5 src/index.ts",
         "dev:server": "nodemon --delay 2.5 src/index.ts",
+        "serverstart:server": "tsc && node dist",
         "eslint": "npx eslint src/**/* --resolve-plugins-relative-to .",
         "fix": "npx eslint src/**/* --resolve-plugins-relative-to . --fix",
         "test": "mocha --timeout 10000 --require ts-node/register 'src/test/**/*.ts'"
@@ -23,7 +24,12 @@
     },
     "homepage": "https://github.com/lethekawa/node-express-ts-base#readme",
     "dependencies": {
+        "@types/axios": "^0.14.0",
         "@types/cors": "^2.8.12",
+        "@types/jest": "^28.1.6",
+        "@types/react": "^18.0.15",
+        "@types/react-dom": "^18.0.6",
+        "axios": "^0.27.2",
         "cors": "^2.8.5",
         "express": "^4.17.1",
         "source-map-support": "^0.5.19"
@@ -50,7 +56,7 @@
         "supertest": "^6.0.1",
         "ts-loader": "^9.3.1",
         "ts-node": "^10.9.1",
-        "typescript": "^4.1.3"
+        "typescript": "^4.7.4"
     },
     "husky": {
         "hooks": {
