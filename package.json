@@ -1,0 +1,63 @@
+{
+  "name": "express-ts-base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist",
+    "dev": "nodemon --delay 2.5 src/index.ts",
+    "eslint": "npx eslint src/**/* --resolve-plugins-relative-to .",
+    "fix": "npx eslint src/**/* --resolve-plugins-relative-to . --fix",
+    "test": "mocha --timeout 10000 --require ts-node/register 'src/test/**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lethekawa/node-express-ts-base.git"
+  },
+  "author": "lethekawa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lethekawa/node-express-ts-base/issues"
+  },
+  "homepage": "https://github.com/lethekawa/node-express-ts-base#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/express": "^4.17.10",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.6.4",
+    "@types/supertest": "^2.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "chai": "^4.2.0",
+    "eslint": "^8.21.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "supertest": "^6.0.1",
+    "ts-loader": "^9.3.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix --resolve-plugins-relative-to .",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
